@@ -20,7 +20,7 @@ https://github.com/starmel/OpenSuperWhisper
   choose Model
   write Initial prompts
 
-[Agents Ergonomics]
+[Agents Ergonomics [axi.md]]
 https://axi.md/
 npx skills add kunchenguid/axi
 
@@ -35,13 +35,16 @@ npx skills add kunchenguid/axi
 
     
 
-[Validating code changes]
+[Validating code changes - [no-mistakes, gh, glab]]
 tell agents to add lavish and no-mistakes to be in root/global
     no-mistakes 
         https://github.com/kunchenguid/no-mistakes
         no-mistakes -y                                                                                                                                                                  1 ↵
             repo not initialized (run 'no-mistakes init' first)
         no-mistakes init
+        no-mistakes -y
+            this is our first PR!
+                https://github.com/hzlnqodrey/agentic-agntostic-mind-map-workflow/pull/1
 
     gh
          brew install gh so PR/CI steps (and gh-axi) work
@@ -54,3 +57,49 @@ tell agents to add lavish and no-mistakes to be in root/global
         glab auth login --hostname gitlab.com
         glab auth status
         glab repo list xxx       # verify access to the group
+
+
+[Long Running Task - [gnhf, autoresearch orchestrator]]
+https://github.com/kunchenguid/gnhf
+https://github.com/karpathy/autoresearch
+
+    gnhf
+        please install https://github.com/kunchenguid/gnhf 
+    
+    gnhf "<objective>"
+    - --agent claude (default agent set)
+    - --stop-when "<condition>" — loop exit
+    - --worktree — isolated branch, parallel agents
+    - --push — push each successful iteration
+    - --max-iterations N / --max-tokens N — budget caps
+    - --prevent-sleep on — keep mac awake overnight
+
+ global. 
+
+  ~/.claude/CLAUDE.md          → @RTK.md + @AXI-TOOLCHAIN.md   (loads every session, every project)
+  ~/.claude/AXI-TOOLCHAIN.md   ← canonical toolchain reference
+
+
+[Parallel worktress and agents - git worktrees parallel [treehouse]]
+initial idea (overhead):
+    "git worktree add ../project-2"
+    "cd project-2"
+
+  treehouse
+    https://github.com/kunchenguid/treehouse
+  
+    treehouse status
+
+
+[Firstmate - "Parallel worktress agents" automation reduce overhead managing many agents sessions - AI Agent Manager]
+    [context-switching automation]
+
+    firstmate
+    https://github.com/kunchenguid/firstmate
+        gh auth login
+        git clone https://github.com/kunchenguid/firstmate
+        cd firstmate && claude   # launch your harness here; AGENTS.md takes over
+
+    example prompts:
+    "I'd like to work on project-1, project-2, and project-3. They are all github projects I own"
+    -> follow up "Hey firsmate, let's also at the most recent three open issues in project-1, project-2, and project-3. And let's discuss which ones are actionable"
