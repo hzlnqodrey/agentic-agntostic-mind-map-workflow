@@ -22,7 +22,13 @@ https://github.com/starmel/OpenSuperWhisper
 
 [Agents Ergonomics]
 https://axi.md/
+npx skills add kunchenguid/axi
 
     gh-axi
+        Run `npx -y gh-axi` for Github operations
     chrome-devtools-axi
+        Run `npx -y chrome-devtools-axi` for browser automation
     lavish-axi
+        Use `npx lavish-axi` to write a product or technical plan for what we discussed.
+        Install the Lavish skill in the Agent Skills format with npx skills:
+        npx skills add kunchenguid/lavish-axi --skill lavish
