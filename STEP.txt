@@ -1,0 +1,28 @@
+[Hazlan's Global Memory Files]
+  Create root AGENTS.md in ~/AGENTS.md
+    vi ~/AGENTS.md
+  symlink with CLAUDE.md in ~/.claude/CLAUDE.md
+    ln -s ~/AGENTS.md ~/.claude/CLAUDE.md
+
+[Hazlan's Project-N Memory Files]
+  Create project AGENTS.md in ~/xxx/project-N/AGENTS.md
+
+
+[Project Skills - NPX Vercel]
+https://github.com/vercel-labs/skills
+  How to add skills
+    npx skills add antrophic/skills --skill skill-creator -g
+
+[Voice Input Transcribe]
+https://github.com/starmel/OpenSuperWhisper
+  
+  choose Keybind
+  choose Model
+  write Initial prompts
+
+[Agents Ergonomics]
+https://axi.md/
+
+    gh-axi
+    chrome-devtools-axi
+    lavish-axi

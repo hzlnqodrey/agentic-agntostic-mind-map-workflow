@@ -1,0 +1,151 @@
+
+<h2 class="sr-only">Agentic agnostic workflow — two-layer agent configuration system with file hierarchy, workflow loop, and AI tool compatibility bridge</h2>
+
+<style>
+* { box-sizing: border-box; }
+.layer { border: 0.5px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 4px; position: relative; overflow: hidden; }
+.layer::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 12px 0 0 12px; }
+.gl::before { background: var(--fill-accent); }
+.pl::before { background: var(--fill-success); }
+.tl::before { background: var(--fill-warning); }
+.lh { display: flex; align-items: center; gap: 6px; font-weight: 500; font-size: 13px; margin-bottom: 6px; }
+.gl .lh { color: var(--text-accent); }
+.pl .lh { color: var(--text-success); }
+.tl .lh { color: var(--text-warning); }
+.lp { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 10px; display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); font-family: var(--font-mono); font-size: 11px; cursor: pointer; color: var(--text-secondary); background: var(--surface-1); transition: border-color 0.12s, color 0.12s, background 0.12s; user-select: none; }
+.chip:hover { border-color: var(--border-stronger); color: var(--text-primary); }
+.chip.sa { border-color: var(--border-accent); color: var(--text-accent); background: var(--bg-accent); }
+.chip.ss { border-color: var(--border-success); color: var(--text-success); background: var(--bg-success); }
+.chip.sw { border-color: var(--border-warning); color: var(--text-warning); background: var(--bg-warning); }
+.conn { text-align: center; font-size: 11px; color: var(--text-muted); margin: 5px 0; letter-spacing: 0.04em; }
+.detail { border: 0.5px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-top: 8px; min-height: 70px; }
+.dname { font-weight: 500; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; color: var(--text-primary); }
+.ddesc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 10px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); background: var(--surface-0); border: 0.5px solid var(--border); padding: 2px 8px; border-radius: 4px; }
+.divider { border: none; border-top: 0.5px solid var(--border); margin: 14px 0; }
+.slabel { font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+.cgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 6px; }
+.citem { padding: 8px 10px; border: 0.5px solid var(--border); border-radius: var(--radius); }
+.cagent { font-size: 12px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+.cfile { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+.cmethod { font-size: 10px; color: var(--text-muted); margin-top: 1px; }
+.wsteps { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.ws { padding: 6px 12px; border: 0.5px solid var(--border-pro); border-radius: var(--radius); font-size: 12px; font-weight: 500; color: var(--text-pro); background: var(--bg-pro); display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 48px; }
+.wn { font-size: 9px; font-weight: 400; opacity: 0.55; }
+.wa { color: var(--text-muted); font-size: 12px; }
+.repo-hdr { font-family: var(--font-mono); font-size: 12px; padding: 8px 12px; border: 0.5px solid var(--border); border-radius: var(--radius); background: var(--surface-0); margin-bottom: 14px; }
+.repo-title { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+.repo-desc { font-size: 11px; color: var(--text-muted); }
+</style>
+
+<div style="padding-bottom:8px">
+
+<div class="repo-hdr">
+  <div class="repo-title">agentic-agnostic-mind-map-workflow</div>
+  <div class="repo-desc">Personal template mental model for any AI agentic workflow — device level to project level</div>
+</div>
+
+<div class="layer gl">
+  <div class="lh"><i class="ti ti-settings" aria-hidden="true"></i> Global layer</div>
+  <span class="lp">~/.claude/ &nbsp;·&nbsp; ~/.agent/</span>
+  <div class="chips">
+    <span class="chip" data-key="claude" data-v="sa"><i class="ti ti-file" aria-hidden="true"></i> CLAUDE.md ↔ AGENTS.md</span>
+    <span class="chip" data-key="voice" data-v="sa"><i class="ti ti-file" aria-hidden="true"></i> VOICE.md</span>
+    <span class="chip" data-key="opinion" data-v="sa"><i class="ti ti-file" aria-hidden="true"></i> OPINION.md</span>
+  </div>
+</div>
+
+<div class="conn">↓ &nbsp; inherits and overrides &nbsp; ↓</div>
+
+<div class="layer pl">
+  <div class="lh"><i class="ti ti-folder" aria-hidden="true"></i> Project layer</div>
+  <span class="lp">~/Work/project-N/</span>
+  <div class="chips">
+    <span class="chip" data-key="pagents" data-v="ss"><i class="ti ti-file" aria-hidden="true"></i> AGENTS.md</span>
+    <span class="chip" data-key="skills" data-v="ss"><i class="ti ti-folder" aria-hidden="true"></i> skills/</span>
+    <span class="chip" data-key="ctx" data-v="ss"><i class="ti ti-file" aria-hidden="true"></i> CONTEXT.md</span>
+    <span class="chip" data-key="mem" data-v="ss"><i class="ti ti-file" aria-hidden="true"></i> MEMORY.md</span>
+  </div>
+</div>
+
+<div class="conn">↓ &nbsp; executes on &nbsp; ↓</div>
+
+<div class="layer tl">
+  <div class="lh"><i class="ti ti-edit" aria-hidden="true"></i> Task layer</div>
+  <span class="lp">src/ &nbsp;·&nbsp; hw/ &nbsp;·&nbsp; tests/ &nbsp;·&nbsp; docs/</span>
+  <div class="chips">
+    <span class="chip" data-key="sw" data-v="sw"><i class="ti ti-file" aria-hidden="true"></i> Software</span>
+    <span class="chip" data-key="hw" data-v="sw"><i class="ti ti-file" aria-hidden="true"></i> Hardware</span>
+    <span class="chip" data-key="tests" data-v="sw"><i class="ti ti-check" aria-hidden="true"></i> Tests</span>
+    <span class="chip" data-key="docs" data-v="sw"><i class="ti ti-file" aria-hidden="true"></i> Docs</span>
+  </div>
+</div>
+
+<div class="detail" id="dp">
+  <div style="font-size:13px;color:var(--text-muted);text-align:center;padding:8px 0">↑ Select a file to see its purpose and key sections</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="slabel">Agnostic bridge — one source, many aliases</div>
+<div class="cgrid">
+  <div class="citem"><div class="cagent">Claude Code</div><div class="cfile">CLAUDE.md</div><div class="cmethod">Native read</div></div>
+  <div class="citem"><div class="cagent">Any LLM agent</div><div class="cfile">AGENTS.md</div><div class="cmethod">ln -s CLAUDE.md</div></div>
+  <div class="citem"><div class="cagent">Cursor</div><div class="cfile">.cursorrules</div><div class="cmethod">ln -s CLAUDE.md</div></div>
+  <div class="citem"><div class="cagent">GitHub Copilot</div><div class="cfile">copilot-instructions.md</div><div class="cmethod">ln -s CLAUDE.md</div></div>
+  <div class="citem"><div class="cagent">Windsurf</div><div class="cfile">.windsurfrules</div><div class="cmethod">ln -s CLAUDE.md</div></div>
+  <div class="citem"><div class="cagent">Gemini CLI</div><div class="cfile">GEMINI.md</div><div class="cmethod">ln -s CLAUDE.md</div></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="slabel">Agent workflow loop</div>
+<div class="wsteps">
+  <div class="ws"><span class="wn">01</span>Load</div>
+  <span class="wa">→</span>
+  <div class="ws"><span class="wn">02</span>Plan</div>
+  <span class="wa">→</span>
+  <div class="ws"><span class="wn">03</span>Build</div>
+  <span class="wa">→</span>
+  <div class="ws"><span class="wn">04</span>Review</div>
+  <span class="wa">→</span>
+  <div class="ws"><span class="wn">05</span>Ship</div>
+  <span class="wa">→</span>
+  <div class="ws"><span class="wn">06</span>Update</div>
+  <span class="wa" style="opacity:0.4">↺</span>
+</div>
+
+</div>
+
+<script>
+const D = {
+  claude:  { name:'CLAUDE.md ↔ AGENTS.md (symlinked)', icon:'ti-file', desc:'Master global agent config. Defines identity, engineering principles, quality gates, context loading order, tool preferences, and response protocol. CLAUDE.md is read natively by Claude Code; symlinked as AGENTS.md for universal compatibility. Every other tool reads it via its own alias.', tags:['## Identity & role','## Core principles','## Quality gates','## Context loading protocol','## Tool priority','## Response protocol','## Hardware engineering','## Non-negotiables'] },
+  voice:   { name:'VOICE.md', icon:'ti-file', desc:"Developer communication DNA. Defines tone, response format, code comment style, naming conventions, and documentation standards. Makes the AI sound like you — not a generic assistant. Set once globally, applies across every project.", tags:['## Tone & style','## Response format','## Code comment style','## Naming conventions','## Documentation standards'] },
+  opinion: { name:'OPINION.md', icon:'ti-file', desc:'Strongly-held engineering opinions, codified. Anti-patterns to flag and refuse, non-negotiable standards, preferred architectural patterns, tech stack preferences. Agent enforces these proactively across every project it touches.', tags:['## Anti-patterns (flag & refuse)','## Architecture opinions','## Preferred patterns','## Tech stack preferences','## Hardware opinions','## Non-negotiables'] },
+  pagents: { name:'AGENTS.md (project level)', icon:'ti-file', desc:'Project-specific config that extends and overrides the global CLAUDE.md. Agent reads global first, then this file. Includes project identity, tech stack, architecture overview, active sprint context, and a skills index. Update the "Active context" section at the start of every session.', tags:['## Project identity','## Active context','## Tech stack','## Architecture overview','## Project structure','## Skills index','## Project-specific rules','## Decision log'] },
+  skills:  { name:'skills/', icon:'ti-folder', desc:'Reusable agent skill templates for recurring task types in this project. Each skill is a markdown file that teaches the agent exactly how to perform a specific operation: adding an API endpoint, PCB review checklist, migration pattern, test scaffolding. The more skills you write, the more consistent the output.', tags:['skill-template.md','api-endpoint.md','test-pattern.md','hw-review.md','migration.md','...'] },
+  ctx:     { name:'CONTEXT.md', icon:'ti-file', desc:"Living architecture document. The 'why' behind decisions. Architecture Decision Records (ADRs), system diagrams, integration maps, known constraints. More stable than MEMORY.md — decisions live here, session notes live there. Agent reads this before touching any architecture-adjacent code.", tags:['## System overview','## Architecture decisions (ADR)','## Integration map','## Known constraints','## Future roadmap'] },
+  mem:     { name:'MEMORY.md', icon:'ti-file', desc:'Persistent agent memory for this project. Session summaries, key decisions, bugs found and fixed, patterns discovered, next steps. The agent appends after each significant session. Bridges the LLM context-window gap across sessions. Always append — never delete.', tags:['## Session log','## Key decisions','## Discovered patterns','## Known issues','## Next steps'] },
+  sw:      { name:'Software deliverables', icon:'ti-file', desc:'All code output follows quality gates from CLAUDE.md: typed, tested, documented, reviewed. Agent enforces naming from VOICE.md and refuses anti-patterns from OPINION.md automatically. Skills in skills/ provide task-specific patterns so output is consistent across sessions.', tags:['src/','tests/','docs/','.env.example','CI/CD config'] },
+  hw:      { name:'Hardware deliverables', icon:'ti-file', desc:'Hardware files follow the same quality gate principle. Schematic first, then PCB layout — never the reverse. Agent uses hw-specific skills for review and design assistance. BOM always maintained in sync with schematic. Version tracked in silkscreen.', tags:['schematics/','pcb/','firmware/','bom/','datasheets/','hw-validation/'] },
+  tests:   { name:'Tests & validation', icon:'ti-check', desc:'Tests are non-negotiable per quality gates in CLAUDE.md. Agent writes tests alongside code — not after. Includes unit, integration, and E2E for software. Hardware bench test procedures and validation checklists live in skills/ folder.', tags:['unit/','integration/','e2e/','hw-validation/','benchmarks/'] },
+  docs:    { name:'Documentation', icon:'ti-file', desc:'All docs generated in the tone defined by VOICE.md — consistent with how you write. Agent keeps code and docs synchronized when making changes. README, API reference, hardware manuals, and runbooks all follow VOICE.md standards.', tags:['README.md','API.md','HARDWARE.md','RUNBOOK.md','CHANGELOG.md'] }
+};
+
+let cur = null;
+document.querySelectorAll('.chip').forEach(c => {
+  c.addEventListener('click', () => {
+    if (cur) cur.classList.remove('sa','ss','sw');
+    cur = c;
+    c.classList.add(c.dataset.v);
+    const d = D[c.dataset.key];
+    document.getElementById('dp').innerHTML =
+      '<div class="dname"><i class="ti ' + d.icon + '" aria-hidden="true"></i>' + d.name + '</div>' +
+      '<div class="ddesc">' + d.desc + '</div>' +
+      '<div class="tags">' + d.tags.map(t => '<span class="tag">'+t+'</span>').join('') + '</div>';
+  });
+});
+</script>
