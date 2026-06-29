@@ -32,3 +32,25 @@ npx skills add kunchenguid/axi
         Use `npx lavish-axi` to write a product or technical plan for what we discussed.
         Install the Lavish skill in the Agent Skills format with npx skills:
         npx skills add kunchenguid/lavish-axi --skill lavish
+
+    
+
+[Validating code changes]
+tell agents to add lavish and no-mistakes to be in root/global
+    no-mistakes 
+        https://github.com/kunchenguid/no-mistakes
+        no-mistakes -y                                                                                                                                                                  1 ↵
+            repo not initialized (run 'no-mistakes init' first)
+        no-mistakes init
+
+    gh
+         brew install gh so PR/CI steps (and gh-axi) work
+    
+    glab
+        brew install glab
+        glab auth login --hostname gitlab.example.com   # self-hosted/private
+
+        brew install glab
+        glab auth login --hostname gitlab.com
+        glab auth status
+        glab repo list xxx       # verify access to the group
