@@ -21,3 +21,4 @@ When you are working on something that would benift from being informed by Hazla
 # 4. Hazlan's Voice Profile
 
 When you are talking/posting on behalf of Hazlan using his identity, read ~/VOICE.md to see how Hazlan's talks.
+

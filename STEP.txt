@@ -7,6 +7,10 @@
 [Hazlan's Project-N Memory Files]
   Create project AGENTS.md in ~/xxx/project-N/AGENTS.md
 
+[Monitoring Claude Code Autonomously multiple terminals, multiple IDEs, sub-agents]
+https://github.com/stefanprodan/cctop
+cctop
+
 
 [Project Skills - NPX Vercel]
 https://github.com/vercel-labs/skills
@@ -103,6 +107,39 @@ initial idea (overhead):
     example prompts:
     "I'd like to work on project-1, project-2, and project-3. They are all github projects I own"
     -> follow up "Hey firsmate, let's also at the most recent three open issues in project-1, project-2, and project-3. And let's discuss which ones are actionable"
+
+
+    ###  how to know if the future crewmate will activate this automate workflow
+    Two mechanisms, captain:
+
+        **1. The brief (`data/<id>/brief.md`)**
+        Every crewmate gets scaffolded with `bin/fm-brief.sh`. That file contains the full contract:
+        - Status-reporting protocol (when/how to write `state/<id>.status`)
+        - Branch setup & worktree isolation assertion
+        - Push/merge rules per delivery mode
+        - Definition of done
+
+        The crewmate reads this brief on launch — it's the launch prompt passed by `fm-spawn.sh`.
+
+        **2. Project `AGENTS.md`**
+        Any durable project-intrinsic knowledge (build steps, sharp edges, conventions) lives in the project's `AGENTS.md`. Crewmates read it at session start because their harness maps `CLAUDE.md → AGENTS.md` (symlink). Firstmate ensures this file exists via `bin/fm-ensure-agents-md.sh` on first ship task.
+
+        ---
+
+        **To verify a future crewmate will have what it needs:**
+
+        ```bash
+        # See what brief looks like before spawning
+        bin/fm-brief.sh <id> <repo-name>
+        cat data/<id>/brief.md
+
+        # Check if project has AGENTS.md
+        ls projects/<repo>/AGENTS.md
+        ```
+
+        If `AGENTS.md` is missing, the first ship task creates it. If the brief has `{TASK}` still in it, you fill that before spawning — that's the only manual step.
+
+        So: brief = crewmate's job description; `AGENTS.md` = project's memory. Both are automatic.
 
 [Auto Agent Development and Lavish Artifact Generation]
 ## Self-Sufficient Auto Development
