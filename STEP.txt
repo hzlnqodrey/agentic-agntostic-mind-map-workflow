@@ -7,6 +7,10 @@
 [Hazlan's Project-N Memory Files]
   Create project AGENTS.md in ~/xxx/project-N/AGENTS.md
 
+[Monitoring Claude Code Autonomously multiple terminals, multiple IDEs, sub-agents]
+https://github.com/stefanprodan/cctop
+cctop
+
 
 [Project Skills - NPX Vercel]
 https://github.com/vercel-labs/skills
